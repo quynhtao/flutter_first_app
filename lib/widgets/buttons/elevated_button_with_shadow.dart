@@ -24,7 +24,7 @@ class ElevatedButtonWithShadow extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         child: Text(
           text,
           style: const TextStyle(fontSize: 20, color: Colors.white),
