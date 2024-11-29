@@ -68,6 +68,10 @@ flutter:
     - assets/svgs/
     - assets/images/
 
+  fonts:
+    - family: DSEG7Classic
+      fonts:
+        - asset: assets/fonts/DSEG7Classic-Regular.ttf
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
