@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:first_app/widgets/digital_clock.dart';
 import 'package:flutter/material.dart';
 
 class ClockPageDigital extends StatefulWidget {
@@ -11,16 +12,21 @@ class ClockPageDigital extends StatefulWidget {
 
 class _ClockPageDigitalState extends State<ClockPageDigital> {
   late Timer timer;
-  late DateTime currentTime;
+  String currentTime = "";
 
   @override
   void initState() {
     super.initState();
-    currentTime = DateTime.now();
+    updateTime();
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        currentTime = DateTime.now();
-      });
+      updateTime();
+    });
+  }
+
+  void updateTime() {
+    final now = DateTime.now();
+    setState(() {
+      currentTime = "${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')}";
     });
   }
 
@@ -32,6 +38,17 @@ class _ClockPageDigitalState extends State<ClockPageDigital> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: const Text("Seven Segment Clock")),
+      body: Center(
+        child: DigitalClock(
+          time: currentTime,
+          digitWidth: 50,
+          digitHeight: 100,
+          activeColor: Colors.black,
+          inactiveColor: Colors.grey,
+        ),
+      ),
+    );
   }
 }
